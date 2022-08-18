@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500&display=swap");
 :root {
   --dark-color: #064e3b;
-  --light-color: #f0fdfa;
+  --light-color: #ffffff;
   --accent-color: #6ee7b7;
   --text-color: #164e63;
 }
@@ -39,10 +39,10 @@
 .books-container {
   margin: 30px 0px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 300px);
-  grid-auto-columns: 300px;
+  grid-template-columns: repeat(auto-fit, 400px);
+  grid-auto-columns: 400px;
   justify-content: center;
-  grid-auto-rows: 300px;
+  grid-auto-rows: 400px;
   gap: 20px;
 }
 
@@ -248,103 +248,116 @@ input[type="number"]::-webkit-outer-spin-button {
   border-radius: 10px;
 } */
 
-.card__side {
-  height: 300px;
+.card_side {
+  height: 400px;
   transition: all 0.8s ease;
   position: absolute;
 
-  width: 300px;
+  width: 400px;
   -webkit-backface-visibility: hidden;
   /* We don't want to see the back part of the element. */
   backface-visibility: hidden;
   /* We don't want to see the back part of the element. */
   border-radius: 3px;
-  overflow: hidden;
+
   /* The image is overflowing the parent. */
 }
-.card__side--front {
+.card_side--front {
   background-image: linear-gradient(
     to right bottom,
     rgba(0, 0, 0, 0.8),
     rgb(0, 0, 0)
   );
 }
-.card__side--back {
+
+.card:hover .card_side--back {
+  transform: rotateY(0);
+}
+.card:hover .card_side--front {
+  transform: rotateY(-180deg);
+}
+.card_theme {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.card_theme-box {
+  color: #fff;
+}
+
+.card_title {
+  font-size: 2rem;
+  font-weight: 100;
+}
+.card_cover {
+  position: relative;
+  background-size: cover;
+  height: 25%;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-image: linear-gradient(
+    to top right,
+    rgba(30, 11, 54, 0.65),
+    rgba(202, 55, 130, 0.65)
+  );
+}
+.card_heading {
+  color: #fff;
+  margin: 0 auto;
+}
+
+.card_title {
+  font-size: 2rem;
+  font-weight: 100;
+}
+.card_cover {
+  height: 25%;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-image: linear-gradient(
+    to top right,
+    rgba(30, 11, 54, 0.65),
+    rgba(207, 190, 199, 0.65)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card_details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  height: 75%;
+  color: #fff;
+  padding: 10px 0px;
+}
+.card_details > div {
+  flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.read-status {
+  background-color: green;
+  font-size: 20px;
+  padding: 0 10px;
+  margin: 0;
+  border: none;
+  border-radius: 10px;
+}
+.read-status:hover {
+  cursor: pointer;
+}
+.card_side--back {
+  color: #fff;
   background-color: rgb(0, 0, 0);
   transform: rotateY(180deg);
 }
-.card:hover .card__side--back {
-  transform: rotateY(0);
-}
-.card:hover .card__side--front {
-  transform: rotateY(-180deg);
-}
-.card__theme {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 
-  text-align: center;
-}
-.card__theme-box {
-  color: #fff;
-}
-
-.card__title {
-  font-size: 2rem;
-  font-weight: 100;
-}
-.card__cover {
-  position: relative;
-  background-size: cover;
-  height: 50%;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  background-image: linear-gradient(
-    to top right,
-    rgba(30, 11, 54, 0.65),
-    rgba(202, 55, 130, 0.65)
-  );
-}
-.card__heading {
-  color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.card__heading-span {
-  font-size: 2rem;
-  font-weight: 300;
-  color: #fff;
-}
-
-.card__title {
-  font-size: 2rem;
-  font-weight: 100;
-}
-.card__cover {
-  position: relative;
-  background-size: cover;
-  height: 50%;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  background-image: linear-gradient(
-    to top right,
-    rgba(30, 11, 54, 0.65),
-    rgba(202, 55, 130, 0.65)
-  );
-}
-.card__heading {
-  color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.card__heading-span {
-  font-size: 2rem;
-  font-weight: 300;
-  color: #fff;
+.delete-icon {
+  background-image: url(./images/delete-icon.png);
 }
