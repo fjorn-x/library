@@ -1,0 +1,350 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500&display=swap");
+:root {
+  --dark-color: #064e3b;
+  --light-color: #f0fdfa;
+  --accent-color: #6ee7b7;
+  --text-color: #164e63;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.header {
+  height: 10vh;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0px 10px;
+  /* background-color: var(--light-color); */
+  background-color: var(--light-color);
+}
+
+.books-container {
+  margin: 30px 0px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-auto-columns: 300px;
+  justify-content: center;
+  grid-auto-rows: 300px;
+  gap: 20px;
+}
+
+.add {
+  font-size: 1.5rem;
+  border-radius: 4px;
+  border: none;
+  padding: 20px 40px;
+  background-color: var(--light-color);
+  border: 3px solid var(--dark-color);
+  color: var(--dark-color);
+  font-weight: 500;
+  position: relative;
+  cursor: pointer;
+}
+.footer {
+  height: 5vh;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer a {
+  text-decoration: none;
+  color: black;
+}
+a:visited:hover,
+a:hover {
+  color: var(--light-color);
+}
+a:visited {
+  color: black;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 30px;
+}
+
+/* .add:hover:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  border-style: solid;
+  width: 0;
+  border-width: 18px;
+  border-color: var(--light-color) rgb(0, 0, 0) rgb(0, 0, 0) var(--light-color);
+} */
+
+.bg-modal {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+}
+.bg-active {
+  visibility: visible;
+  opacity: 1;
+}
+.modal-content {
+  width: 300px;
+  height: 400px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0);
+  color: var(--light-color);
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  transform: rotate(45deg);
+}
+.close:hover {
+  cursor: pointer;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 30px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.input-check {
+  color: var(--light-color);
+
+  font-size: 1rem;
+}
+.switch-field {
+  display: flex;
+  margin-bottom: 30px;
+}
+.switch-field input {
+  position: absolute !important;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  width: 1px;
+  border: 0;
+  overflow: hidden;
+}
+.switch-field label {
+  margin-top: 10px;
+  background-color: var(--light-color);
+  color: #000;
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  padding: 8px 16px;
+  margin-right: -1px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.1s ease-in-out;
+}
+.switch-field label:hover {
+  cursor: pointer;
+}
+.switch-field label:first-of-type {
+  border-radius: 4px 0 0 4px;
+}
+
+.switch-field label:last-of-type {
+  border-radius: 0 4px 4px 0;
+}
+
+.switch-field input:checked + label {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  box-shadow: none;
+}
+.input-container {
+  position: relative;
+  margin-bottom: 25px;
+}
+.input-container label {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 1rem;
+  color: var(--light-color);
+  cursor: text;
+  transition: all 0.5s ease-in-out;
+}
+.input-container input {
+  border: 0;
+  border-bottom: 1px solid var(--light-color);
+  background: transparent;
+  width: 100%;
+  padding: 8px 0 5px 0;
+  font-size: 16px;
+  color: var(--light-color);
+}
+.input-container input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--dark-color);
+}
+.btn {
+  color: var(--dark-color);
+  background-color: black;
+  outline: none;
+  border: 3px solid var(--dark-color);
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+.btn:hover {
+  color: var(--light-color);
+  background-color: var(--dark-color);
+}
+.input-container input:focus ~ label,
+.input-container input:valid ~ label {
+  top: -12px;
+  font-size: 12px;
+}
+/* 
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--dark-color);
+  border: 5px solid var(--dark-color);
+  border-radius: 10px;
+} */
+
+.card__side {
+  height: 300px;
+  transition: all 0.8s ease;
+  position: absolute;
+
+  width: 300px;
+  -webkit-backface-visibility: hidden;
+  /* We don't want to see the back part of the element. */
+  backface-visibility: hidden;
+  /* We don't want to see the back part of the element. */
+  border-radius: 3px;
+  overflow: hidden;
+  /* The image is overflowing the parent. */
+}
+.card__side--front {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(0, 0, 0, 0.8),
+    rgb(0, 0, 0)
+  );
+}
+.card__side--back {
+  background-color: rgb(0, 0, 0);
+  transform: rotateY(180deg);
+}
+.card:hover .card__side--back {
+  transform: rotateY(0);
+}
+.card:hover .card__side--front {
+  transform: rotateY(-180deg);
+}
+.card__theme {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+}
+.card__theme-box {
+  color: #fff;
+}
+
+.card__title {
+  font-size: 2rem;
+  font-weight: 100;
+}
+.card__cover {
+  position: relative;
+  background-size: cover;
+  height: 50%;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-image: linear-gradient(
+    to top right,
+    rgba(30, 11, 54, 0.65),
+    rgba(202, 55, 130, 0.65)
+  );
+}
+.card__heading {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.card__heading-span {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #fff;
+}
+
+.card__title {
+  font-size: 2rem;
+  font-weight: 100;
+}
+.card__cover {
+  position: relative;
+  background-size: cover;
+  height: 50%;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-image: linear-gradient(
+    to top right,
+    rgba(30, 11, 54, 0.65),
+    rgba(202, 55, 130, 0.65)
+  );
+}
+.card__heading {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.card__heading-span {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #fff;
+}

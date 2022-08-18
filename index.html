@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" async defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <h1>Library</h1>
+      </div>
+      <div class="main-container">
+        <div class="buttons">
+          <button type="button" class="add">New Book</button>
+        </div>
+        <div class="books-container"></div>
+      </div>
+      <div class="footer">
+        <h3>Developed by <a href="https://github.com/fjorn-x" target="_blank">hamza</a></h3>
+      </div>
+    </div>
+    <div class="bg-modal">
+      <div class="modal-content">
+        <div class="close">+</div>
+        <form>
+          <div class="input-container">
+            <input type="text" id="title" name="title" required pattern="[a-z]+"/>
+            <label for="title">Title</label>
+          </div>
+          <div class="input-container">
+            <input type="text" id="author" name="author" required />
+            <label for="author">Author</label>
+          </div>
+          <div class="input-container">
+            <input type="number" id="pages" name="pages" required />
+            <label for="pages">Pages</label>
+          </div>
+          <div class="input-check">
+            <h4>Have You Read It</h6>
+            <div class="switch-field">
+              <input type="radio" name="read" id="yes" value='true' checked />
+              <label for="yes">Yes</label>
+              <input type="radio" name="read" id="no"  value='false'/>
+              <label for="no">No</label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn submit">add new book</button>
+        </form>
+      </div>
+    </div>
+  
+  </body>
+</html>
