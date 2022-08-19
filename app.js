@@ -18,6 +18,7 @@ submit.addEventListener("click", (e) => {
   display(bookCounter);
   bookCounter++;
   form.reset();
+  console.log(myLibrary);
 });
 
 addBook.addEventListener("click", () => {
@@ -75,7 +76,6 @@ function addBookToLibrary(book) {
 
 function display(bookCount) {
   const obj = myLibrary[bookCount];
-
   const newCard = document.createElement("div");
   newCard.classList.add("card");
   newCard.innerHTML = `
@@ -102,7 +102,7 @@ function display(bookCount) {
       </div>
       <div class="remove">
       <h2>Remove</h2>
-      <button class="btn-delete" data-index="${bookCounter}">
+      <button class="btn-delete" data-index="${bookCounter - 1}">
         <span>Delete</span>
     </button>
       </div>
@@ -125,8 +125,6 @@ function display(bookCount) {
   const readStatus = newCard.querySelector(".read-status");
 
   readStatus.addEventListener("click", () => {
-    console.log(readStatus.textContent);
-
     readStatus.textContent =
       readStatus.textContent === "Read" ? "Not Read" : "Read";
     readStatus.style.backgroundColor =
@@ -135,18 +133,22 @@ function display(bookCount) {
         : "var(--status-not-read)";
 
     obj.read = readStatus.textContent;
-    console.log(myLibrary);
   });
   deleteBook.addEventListener("click", () => {
     const index = parseInt(deleteBook.getAttribute("data-index"));
+
     myLibrary.splice(index, 1);
 
     booksContainer.removeChild(newCard);
     if (!(bookCounter === 0)) {
       bookCounter--;
+      bookCount--;
     }
   });
   booksContainer.appendChild(newCard);
 }
 
+Book.prototype.readFunctions = function () {
+  this.read = this.read === "Read";
+};
 display(0);
