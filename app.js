@@ -7,7 +7,6 @@ const modalContent = document.querySelector(".modal-content");
 const submit = document.querySelector(".submit");
 const form = document.querySelector("form");
 const closeModal = document.querySelector(".close");
-const readStatus = document.querySelector(".read-status");
 
 let bookCounter = 1;
 
@@ -123,7 +122,21 @@ function display(bookCount) {
 </div>
 `;
   const deleteBook = newCard.querySelector(".btn-delete");
+  const readStatus = newCard.querySelector(".read-status");
 
+  readStatus.addEventListener("click", () => {
+    console.log(readStatus.textContent);
+
+    readStatus.textContent =
+      readStatus.textContent === "Read" ? "Not Read" : "Read";
+    readStatus.style.backgroundColor =
+      readStatus.textContent === "Read"
+        ? "var(--status-read)"
+        : "var(--status-not-read)";
+
+    obj.read = readStatus.textContent;
+    console.log(myLibrary);
+  });
   deleteBook.addEventListener("click", () => {
     const index = parseInt(deleteBook.getAttribute("data-index"));
     myLibrary.splice(index, 1);

@@ -1,9 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
 :root {
-  --dark-color: #064e3b;
+  --dark-color: black;
   --light-color: #ffffff;
-  --accent-color: #6ee7b7;
-  --text-color: #164e63;
   --status-read: green;
   --status-not-read: red;
 }
@@ -34,7 +32,7 @@
   flex-direction: column;
   flex: 1;
   padding: 0px 10px;
-  /* background-color: var(--light-color); */
+
   background-color: var(--light-color);
 }
 
@@ -58,14 +56,14 @@
 }
 .footer a {
   text-decoration: none;
-  color: black;
+  color: red;
 }
 a:visited:hover,
 a:hover {
   color: var(--light-color);
 }
 a:visited {
-  color: black;
+  color: red;
 }
 
 .buttons {
@@ -169,7 +167,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .switch-field label {
   margin-top: 10px;
   background-color: var(--light-color);
-  color: #000;
+  color: rgb(35, 58, 84);
   font-size: 14px;
   line-height: 1;
   text-align: center;
@@ -191,7 +189,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .switch-field input:checked + label {
-  background-color: var(--dark-color);
+  background-color: rgb(35, 58, 84);
   color: var(--light-color);
   box-shadow: none;
 }
@@ -220,13 +218,14 @@ input[type="number"]::-webkit-outer-spin-button {
 .input-container input:focus {
   border: none;
   outline: none;
-  border-bottom: 1px solid var(--dark-color);
+  border-bottom: 1px solid rgb(35, 58, 84);
 }
 .btn {
-  color: var(--dark-color);
+  font-weight: 300;
+  color: rgb(35, 58, 84);
   background-color: black;
   outline: none;
-  border: 3px solid var(--dark-color);
+  border: 3px solid rgb(35, 58, 84);
   padding: 10px 20px;
   text-transform: uppercase;
   border-radius: 2px;
@@ -235,7 +234,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .btn:hover {
   color: var(--light-color);
-  background-color: var(--dark-color);
+  background-color: rgb(35, 58, 84);
 }
 .input-container input:focus ~ label,
 .input-container input:valid ~ label {
@@ -254,7 +253,12 @@ input[type="number"]::-webkit-outer-spin-button {
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 .card_side--front {
-  background-image: linear-gradient(-20deg, black 0%, var(--dark-color) 100%);
+  /* background-image: linear-gradient(-20deg, black 0%, var(--dark-color) 100%); */
+  background-image: linear-gradient(
+    -45deg,
+    rgb(20, 30, 49) 50%,
+    rgb(35, 58, 84) 50%
+  );
 }
 
 .card:hover .card_side--back {
@@ -277,6 +281,7 @@ input[type="number"]::-webkit-outer-spin-button {
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-weight: 100;
 }
 .author {
   flex: 1;
@@ -286,16 +291,27 @@ input[type="number"]::-webkit-outer-spin-button {
   flex-direction: column;
   margin-bottom: 20px;
 }
+.author > h1,
+.author > h2 {
+  font-weight: 100;
+}
 .card_heading {
   color: #fff;
   margin: 0 auto;
 }
 
+.card_cover > h1 {
+  font-weight: 100;
+}
 .card_cover {
   height: 25%;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  background-image: linear-gradient(-20deg, black 0%, var(--dark-color) 100%);
+  background-image: linear-gradient(
+    -45deg,
+    rgb(20, 30, 49) 50%,
+    rgb(35, 58, 84) 50%
+  );
   display: flex;
   justify-content: center;
   align-items: center;
@@ -318,6 +334,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .read-status {
   background-color: green;
+  color: white;
   font-size: 20px;
   padding: 0 10px;
   margin: 0;
