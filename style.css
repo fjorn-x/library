@@ -4,6 +4,8 @@
   --light-color: #ffffff;
   --accent-color: #6ee7b7;
   --text-color: #164e63;
+  --status-read: green;
+  --status-not-read: red;
 }
 * {
   padding: 0;
@@ -46,18 +48,6 @@
   gap: 20px;
 }
 
-.add {
-  font-size: 1.5rem;
-  border-radius: 4px;
-  border: none;
-  padding: 20px 40px;
-  background-color: var(--light-color);
-  border: 3px solid var(--dark-color);
-  color: var(--dark-color);
-  font-weight: 500;
-  position: relative;
-  cursor: pointer;
-}
 .footer {
   height: 5vh;
   background-color: var(--dark-color);
@@ -84,7 +74,22 @@ a:visited {
   align-items: center;
   margin-top: 30px;
 }
+.add {
+  font-size: 1.5rem;
+  border-radius: 4px;
 
+  padding: 10px 40px;
+  background-color: var(--light-color);
+  border: 3px solid var(--dark-color);
+  color: var(--dark-color);
+  font-weight: 500;
+  position: relative;
+  cursor: pointer;
+}
+.add:hover {
+  color: white !important;
+  background-color: var(--dark-color);
+}
 /* .add:hover:before {
   position: absolute;
   content: "";
@@ -237,37 +242,19 @@ input[type="number"]::-webkit-outer-spin-button {
   top: -12px;
   font-size: 12px;
 }
-/* 
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: var(--dark-color);
-  border: 5px solid var(--dark-color);
-  border-radius: 10px;
-} */
 
 .card_side {
   height: 400px;
   transition: all 0.8s ease;
   position: absolute;
-
   width: 400px;
   -webkit-backface-visibility: hidden;
-  /* We don't want to see the back part of the element. */
   backface-visibility: hidden;
-  /* We don't want to see the back part of the element. */
-  border-radius: 3px;
-
-  /* The image is overflowing the parent. */
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 .card_side--front {
-  background-image: linear-gradient(
-    to right bottom,
-    rgba(0, 0, 0, 0.8),
-    rgb(0, 0, 0)
-  );
+  background-image: linear-gradient(-20deg, black 0%, var(--dark-color) 100%);
 }
 
 .card:hover .card_side--back {
@@ -277,50 +264,38 @@ input[type="number"]::-webkit-outer-spin-button {
   transform: rotateY(-180deg);
 }
 .card_theme {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  color: #fff;
+  display: flex;
+  text-transform: capitalize;
+  padding: 10px;
+  flex-direction: column;
+  height: 100%;
+}
+.card_theme > h1 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
-.card_theme-box {
-  color: #fff;
-}
-
-.card_title {
-  font-size: 2rem;
-  font-weight: 100;
-}
-.card_cover {
-  position: relative;
-  background-size: cover;
-  height: 25%;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  background-image: linear-gradient(
-    to top right,
-    rgba(30, 11, 54, 0.65),
-    rgba(202, 55, 130, 0.65)
-  );
+.author {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 .card_heading {
   color: #fff;
   margin: 0 auto;
 }
 
-.card_title {
-  font-size: 2rem;
-  font-weight: 100;
-}
 .card_cover {
   height: 25%;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  background-image: linear-gradient(
-    to top right,
-    rgba(30, 11, 54, 0.65),
-    rgba(207, 190, 199, 0.65)
-  );
+  background-image: linear-gradient(-20deg, black 0%, var(--dark-color) 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -339,7 +314,7 @@ input[type="number"]::-webkit-outer-spin-button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 .read-status {
   background-color: green;
@@ -358,6 +333,20 @@ input[type="number"]::-webkit-outer-spin-button {
   transform: rotateY(180deg);
 }
 
-.delete-icon {
-  background-image: url(./images/delete-icon.png);
+.btn-delete {
+  font-size: 20px;
+  color: red;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: 1px solid white;
+  padding: 0 10px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.btn-delete:hover {
+  background-color: #ff0000;
+  color: white;
+  border: none;
 }
